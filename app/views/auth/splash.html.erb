@@ -1,0 +1,12 @@
+<h1>Welcome</h1>
+<p>Basic splash page information will go here<p>
+  <div id="authentication">
+    <% if session[:uid].nil? -%>
+    <%= link_to 'login', shibboleth_login_path %>
+    <% else -%>
+    <p>
+      Authenticated as <b><%= session[:uid] %> <%= session[:shib_session_id] %></b>.
+    </p>
+    <%= link_to 'logout', logout_path %>
+    <% end -%>
+  </div>
